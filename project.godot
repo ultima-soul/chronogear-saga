@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "BaseState",
+"language": "GDScript",
+"path": "res://src/Player/States/base_state.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://src/Player/player.gd"
+}, {
+"base": "Node2D",
+"class": "StateManager",
+"language": "GDScript",
+"path": "res://src/Player/States/state_manager.gd"
+} ]
+_global_script_class_icons={
+"BaseState": "",
+"Player": "",
+"StateManager": ""
+}
+
 [application]
 
 config/name="2D Platformer"

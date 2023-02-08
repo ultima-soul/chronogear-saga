@@ -2,13 +2,6 @@ extends BaseState
 
 export var move_speed: float = 60
 
-func input(event: InputEvent) -> int:
-	if Input.is_action_just_pressed("jump"):
-		return State.JUMP
-
-	return State.NULL
-
-
 func physics_process(delta: float) -> int:
 	var move_dir: int = 0
 
@@ -21,7 +14,10 @@ func physics_process(delta: float) -> int:
 	player.velocity.x = move_dir * move_speed
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 
-	if move_dir == 0:
-		return State.IDLE
+	if player.is_on_floor():
+		if move_dir != 0:
+			return State.WALK
+		else:
+			return State.IDLE
 
 	return State.NULL

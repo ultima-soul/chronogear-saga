@@ -2,7 +2,7 @@ class_name Player
 extends KinematicBody2D
 
 
-var gravity: int = 4
+var gravity: float = 4.5
 var velocity: Vector2 = Vector2.ZERO
 
 onready var states: Node2D = $StateManager

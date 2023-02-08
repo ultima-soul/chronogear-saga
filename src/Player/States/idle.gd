@@ -4,6 +4,8 @@ extends BaseState
 func input(event: InputEvent) -> int:
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
 		return State.WALK
+	elif Input.is_action_just_pressed("jump"):
+		return State.JUMP
 
 	return State.NULL
 

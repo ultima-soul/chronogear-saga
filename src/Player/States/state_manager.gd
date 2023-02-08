@@ -6,6 +6,8 @@ var current_state: BaseState
 onready var states: Dictionary = {
 	BaseState.State.IDLE: $Idle,
 	BaseState.State.WALK: $Walk,
+	BaseState.State.JUMP: $Jump,
+	BaseState.State.FALL: $Fall,
 }
 
 

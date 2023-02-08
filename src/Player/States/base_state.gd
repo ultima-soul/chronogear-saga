@@ -6,6 +6,8 @@ enum State {
 	NULL,
 	IDLE,
 	WALK,
+	JUMP,
+	FALL,
 }
 
 export var animation_name: String

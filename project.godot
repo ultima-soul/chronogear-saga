@@ -18,16 +18,10 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/Player/player.gd"
-}, {
-"base": "Node2D",
-"class": "StateManager",
-"language": "GDScript",
-"path": "res://src/Player/States/state_manager.gd"
 } ]
 _global_script_class_icons={
 "BaseState": "",
-"Player": "",
-"StateManager": ""
+"Player": ""
 }
 
 [application]
@@ -70,6 +64,19 @@ texture={
 "size_limit": 0,
 "stream": false,
 "svg/scale": 1.0
+}
+
+[input]
+
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
 }
 
 [layer_names]

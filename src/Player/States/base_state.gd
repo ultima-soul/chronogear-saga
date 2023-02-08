@@ -10,6 +10,8 @@ enum State {
 
 export var animation_name: String
 
+var player: Player
+
 
 func enter() -> void:
 	pass

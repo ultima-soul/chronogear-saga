@@ -1,13 +1,12 @@
-class_name StateManager
 extends Node2D
 
+
+var current_state: BaseState
 
 onready var states: Dictionary = {
 	BaseState.State.IDLE: $Idle,
 	BaseState.State.WALK: $Walk,
 }
-
-var current_state: BaseState
 
 
 func change_state(new_state: int) -> void:

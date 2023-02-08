@@ -2,14 +2,6 @@ class_name BaseState
 extends Node2D
 
 
-enum State {
-	NULL,
-	IDLE,
-	WALK,
-	JUMP,
-	FALL,
-}
-
 export var animation_name: String
 
 var player: Player
@@ -23,13 +15,13 @@ func exit() -> void:
 	pass
 
 
-func input(event: InputEvent) -> int:
-	return State.NULL
+func input(event: InputEvent) -> BaseState:
+	return null
 
 
-func process(delta: float) -> int:
-	return State.NULL
+func process(delta: float) -> BaseState:
+	return null
 
 
-func physics_process(delta: float) -> int:
-	return State.NULL
+func physics_process(delta: float) -> BaseState:
+	return null

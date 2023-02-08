@@ -1,21 +1,19 @@
+tool
 extends Node2D
 
 
+export var start_state: NodePath
+
 var current_state: BaseState
 
-onready var states: Dictionary = {
-	BaseState.State.IDLE: $Idle,
-	BaseState.State.WALK: $Walk,
-	BaseState.State.JUMP: $Jump,
-	BaseState.State.FALL: $Fall,
-}
+func _get_configuration_warning() -> String:
+	return "start_state must be assigned" if not start_state else ""
 
-
-func change_state(new_state: int) -> void:
+func change_state(new_state: BaseState) -> void:
 	if current_state:
 		current_state.exit()
 
-	current_state = states[new_state]
+	current_state = new_state
 	current_state.enter()
 
 
@@ -23,18 +21,18 @@ func init(player: Player) -> void:
 	for child in get_children():
 		child.player = player
 
-	change_state(BaseState.State.IDLE)
+	change_state(get_node(start_state))
 
 
 func physics_process(delta: float) -> void:
-	var new_state: int = current_state.physics_process(delta)
+	var new_state: BaseState = current_state.physics_process(delta)
 
-	if new_state != BaseState.State.NULL:
+	if new_state:
 		change_state(new_state)
 
 
 func input(event: InputEvent) -> void:
-	var new_state: int = current_state.input(event)
+	var new_state: BaseState = current_state.input(event)
 
-	if new_state != BaseState.State.NULL:
+	if new_state:
 		change_state(new_state)

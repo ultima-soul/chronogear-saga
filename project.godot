@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "BaseState",
 "language": "GDScript",
-"path": "res://src/Player/States/base_state.gd"
+"path": "res://src/StateMachine/base_state.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",

@@ -13,7 +13,7 @@ onready var fall_state: BaseState = get_node(fall_node)
 
 
 func enter() -> void:
-	player.velocity.y = -jump_init_speed
+	character.velocity.y = -jump_init_speed
 
 func physics_process(delta: float) -> BaseState:
 	var move_dir: int = 0
@@ -23,14 +23,14 @@ func physics_process(delta: float) -> BaseState:
 	elif Input.is_action_pressed("move_right"):
 		move_dir = 1
 
-	player.velocity.x = move_dir * move_speed
-	player.velocity.y += player.gravity
-	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
+	character.velocity.x = move_dir * move_speed
+	character.velocity.y += character.gravity
+	character.velocity = character.move_and_slide(character.velocity, Vector2.UP)
 
-	if player.velocity.y > 0:
+	if character.velocity.y > 0:
 		return fall_state
 
-	if player.is_on_floor():
+	if character.is_on_floor():
 		if move_dir != 0:
 			return walk_state
 		else:

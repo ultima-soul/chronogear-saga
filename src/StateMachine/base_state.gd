@@ -4,7 +4,7 @@ extends Node2D
 
 export var animation_name: String
 
-var player: Player
+var character: KinematicBody2D
 
 
 func enter() -> void:

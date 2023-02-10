@@ -20,10 +20,10 @@ func input(event: InputEvent) -> BaseState:
 
 
 func physics_process(delta: float) -> BaseState:
-	if not player.is_on_floor():
+	if not character.is_on_floor():
 		return fall_state
 
-	player.velocity.y += player.gravity
-	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
+	character.velocity.y += character.gravity
+	character.velocity = character.move_and_slide(character.velocity, Vector2.UP)
 
 	return null

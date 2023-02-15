@@ -7,10 +7,12 @@ var velocity: Vector2 = Vector2.ZERO
 var move_dir: int = 0
 
 onready var states: Node2D = $StateManager
+onready var timer: Timer = $Timer
 
 
 func _ready() -> void:
 	states.init(self)
+	randomize()
 
 
 func _process(delta: float) -> void:

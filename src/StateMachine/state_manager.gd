@@ -6,8 +6,10 @@ export var start_state: NodePath
 
 var current_state: BaseState
 
+
 func _get_configuration_warning() -> String:
 	return "start_state must be assigned" if not start_state else ""
+
 
 func change_state(new_state: BaseState) -> void:
 	if current_state:

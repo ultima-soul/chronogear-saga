@@ -32,3 +32,5 @@ walk_node = NodePath("../Walk")
 [node name="Walk" type="Node2D" parent="StateManager"]
 script = ExtResource( 2 )
 idle_node = NodePath("../Idle")
+
+[node name="Timer" type="Timer" parent="."]

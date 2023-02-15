@@ -1,16 +1,19 @@
 class_name AIInputState
 extends BaseState
 
-var curr_state_timer: SceneTreeTimer
 
-#func physics_process(delta: float) -> BaseState:
+func _on_Timer_timeout() -> void:
+	character.move_dir = randi() % 3 - 1
+
+
+func _ready() -> void:
+	randomize()
+
 
 func enter() -> void:
-	curr_state_timer = get_tree().create_timer(4)
+	character.timer.connect("timeout", self, "_on_Timer_timeout")
+	character.timer.start(4)
+
 
 func get_move_dir() -> int:
-	if curr_state_timer.time_left <= 0:
-		character.move_dir = randi() % 3 - 1
-
-	print(character.move_dir)
 	return character.move_dir;

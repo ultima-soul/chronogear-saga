@@ -47,9 +47,7 @@ position = Vector2( 48, 144 )
 position = Vector2( 168, 96 )
 
 [node name="EnemyOne2" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 224, 128 )
 
 [node name="EnemyOne3" parent="." instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 128, 144 )

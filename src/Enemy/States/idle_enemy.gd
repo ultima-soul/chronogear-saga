@@ -11,12 +11,11 @@ onready var walk_state: BaseState = get_node(walk_node)
 
 
 func enter() -> void:
-	.enter()
 	character.timer.start(2)
 
 
 func input(event: InputEvent) -> BaseState:
-	if get_move_dir() != 0:
+	if character.move_dir != 0:
 		return walk_state
 
 	return null

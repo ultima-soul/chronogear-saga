@@ -45,9 +45,11 @@ position = Vector2( 48, 144 )
 
 [node name="EnemyOne" parent="." instance=ExtResource( 3 )]
 position = Vector2( 168, 96 )
+detecting_edge = true
 
 [node name="EnemyOne2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 224, 128 )
+detecting_edge = true
 
 [node name="EnemyOne3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 128, 144 )

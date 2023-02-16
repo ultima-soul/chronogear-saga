@@ -22,9 +22,9 @@ func physics_process(delta: float) -> BaseState:
 #	if not character.is_on_floor():
 #		return fall_state
 
-	var move_dir: int = get_move_dir()
+	var move_dir: int = character.move_dir
 
-	if move_dir != 0 and character.is_on_wall():
+	if move_dir != 0 and character.is_on_wall() or is_edge_detected():
 		move_dir *= -1
 		character.move_dir = move_dir
 
@@ -36,3 +36,7 @@ func physics_process(delta: float) -> BaseState:
 		return idle_state
 
 	return null
+
+
+func is_edge_detected() -> bool:
+	return character.detecting_edge and not character.edge_detector.is_colliding()

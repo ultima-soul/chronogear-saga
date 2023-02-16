@@ -2,16 +2,27 @@ class_name Enemy
 extends KinematicBody2D
 
 
+export var detecting_edge: bool
+
 var gravity: float = 4.5
 var velocity: Vector2 = Vector2.ZERO
-var move_dir: int = 0
+var move_dir: int = 0 setget set_move_dir
 
 onready var states: Node2D = $StateManager
 onready var timer: Timer = $Timer
+onready var edge_detector: RayCast2D = $EdgeDetector
 
 
 func _ready() -> void:
+	if detecting_edge:
+		edge_detector.enabled = true
+		edge_detector.position.x = $CollisionShape2D.shape.extents.x * move_dir
+
 	states.init(self)
+
+	for child in states.get_children():
+		timer.connect("timeout", child, "_on_Timer_timeout")
+
 	randomize()
 
 
@@ -21,3 +32,10 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	states.physics_process(delta)
+
+
+func set_move_dir(dir: int) -> void:
+	move_dir = dir
+
+	if detecting_edge:
+		edge_detector.position.x = $CollisionShape2D.shape.extents.x * move_dir

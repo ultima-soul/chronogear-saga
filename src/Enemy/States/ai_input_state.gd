@@ -11,9 +11,4 @@ func _ready() -> void:
 
 
 func enter() -> void:
-	character.timer.connect("timeout", self, "_on_Timer_timeout")
 	character.timer.start(4)
-
-
-func get_move_dir() -> int:
-	return character.move_dir;

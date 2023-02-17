@@ -26,6 +26,13 @@ func init(character: KinematicBody2D) -> void:
 	change_state(get_node(start_state))
 
 
+func process(delta: float) -> void:
+	var new_state: BaseState = current_state.process(delta)
+
+	if new_state:
+		change_state(new_state)
+
+
 func physics_process(delta: float) -> void:
 	var new_state: BaseState = current_state.physics_process(delta)
 

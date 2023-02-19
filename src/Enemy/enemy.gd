@@ -6,9 +6,10 @@ export var detecting_edge: bool
 export var max_hit_points: int = 2
 
 var gravity: float = 4.5
-var velocity: Vector2 = Vector2.ZERO
+var velocity: Vector2 = Vector2.ZERO setget set_velocity
 var move_dir: int = 0 setget set_move_dir
 var hit_points: int = max_hit_points setget set_hit_points
+var slowdown_enabled: bool = false
 
 onready var states: Node2D = $StateManager
 onready var timer: Timer = $Timer
@@ -39,6 +40,15 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	states.physics_process(delta)
+
+
+func set_velocity(new_velocity: Vector2) -> void:
+	if slowdown_enabled:
+		velocity.x = velocity.x if is_equal_approx(velocity.x, new_velocity.x) else new_velocity.x / 2
+		velocity.y = velocity.y if is_equal_approx(velocity.y, new_velocity.y) else new_velocity.y / 2
+		return
+
+	velocity = new_velocity
 
 
 func set_move_dir(dir: int) -> void:

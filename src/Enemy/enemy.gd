@@ -16,7 +16,7 @@ onready var edge_detector: RayCast2D = $EdgeDetector
 onready var hit_detector: Area2D = $HitDetector
 
 
-func _on_HitDetector_body_entered(body: Node) -> void:
+func _on_HitDetector_area_entered(area: Area2D) -> void:
 	self.set_hit_points(hit_points - 1)
 
 

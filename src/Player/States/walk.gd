@@ -14,7 +14,7 @@ onready var hurt_state: BaseState = get_node(hurt_node)
 
 
 func _on_EnemyDetector_body_entered(body: Node) -> void:
-	character.states.change_state(hurt_state)
+	character.move_states.change_state(hurt_state)
 
 
 func enter() -> void:
@@ -40,10 +40,10 @@ func physics_process(delta: float) -> BaseState:
 
 	if Input.is_action_pressed("move_left"):
 		move_dir = -1
-		character.sprite.flip_h = true
+		character.flip(move_dir)
 	elif Input.is_action_pressed("move_right"):
 		move_dir = 1
-		character.sprite.flip_h = false
+		character.flip(move_dir)
 
 	character.velocity.x = move_dir * move_speed
 	character.velocity.y += character.gravity

@@ -13,7 +13,7 @@ onready var hurt_state: BaseState = get_node(hurt_node)
 
 
 func _on_EnemyDetector_body_entered(body: Node) -> void:
-	character.states.change_state(hurt_state)
+	character.move_states.change_state(hurt_state)
 
 
 func enter() -> void:

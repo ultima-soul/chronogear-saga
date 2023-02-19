@@ -44,11 +44,11 @@ collision_mask = 4
 
 [node name="HitDetector" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 8
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetector"]
 position = Vector2( 0, -8 )
 shape = SubResource( 2 )
 
-[connection signal="body_entered" from="HitDetector" to="." method="_on_HitDetector_body_entered"]
+[connection signal="area_entered" from="HitDetector" to="." method="_on_HitDetector_area_entered"]

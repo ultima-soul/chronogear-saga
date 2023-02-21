@@ -22,7 +22,7 @@ func input(event: InputEvent) -> BaseState:
 
 
 func physics_process(delta: float) -> BaseState:
-	character.velocity.y += character.gravity
+	character.velocity.y += character.gravity / (2 if character.slowdown_enabled else 1)
 	character.velocity = character.move_and_slide(character.velocity, Vector2.UP)
 
 	return null

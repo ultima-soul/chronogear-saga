@@ -13,5 +13,9 @@ func _on_Timer_timeout() -> void:
 	queue_free()
 
 
+func _ready() -> void:
+	add_to_group("Shots")
+
+
 func _physics_process(delta: float) -> void:
 	position += transform.x * speed * delta

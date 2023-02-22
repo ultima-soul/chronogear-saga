@@ -12,7 +12,7 @@ func input(event: InputEvent) -> BaseState:
 	if Input.is_action_just_pressed("shoot"):
 		return shoot_state
 
-	if Input.is_action_just_pressed("toggle_slowdown"):
+	if character.slowdown_points > 0 and Input.is_action_just_pressed("toggle_slowdown"):
 		return toggle_slowdown_state
 
 	return null

@@ -12,6 +12,8 @@ onready var await_input_state: BaseState = get_node(await_input_node)
 func enter() -> void:
 	timer = max_time
 
+	character.slowdown_enabled = not character.slowdown_enabled
+
 	var enemies: Array = get_tree().get_nodes_in_group("Enemies")
 
 	for enemy in enemies:

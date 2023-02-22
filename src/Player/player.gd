@@ -3,11 +3,16 @@ extends KinematicBody2D
 
 
 export var max_hit_points: int = 10
+export var max_slowdown_points: int = 10
+export var max_slowdown_tick_count: int = 60
 export var Shot: PackedScene
 
 var gravity: float = 4.5
 var velocity: Vector2 = Vector2.ZERO
 var hit_points: int = max_hit_points setget set_hit_points
+var slowdown_points: int = max_slowdown_points setget set_slowdown_points
+var slowdown_enabled: bool = false
+var slowdown_tick_count = max_slowdown_tick_count
 
 onready var sprite: Sprite = $Player
 onready var move_states: Node2D = $MoveStateManager
@@ -30,6 +35,9 @@ func _process(delta: float) -> void:
 	move_states.process(delta)
 	action_states.process(delta)
 
+	if slowdown_enabled:
+		self.slowdown_points -= 1
+
 
 func _physics_process(delta: float) -> void:
 	move_states.physics_process(delta)
@@ -38,6 +46,29 @@ func _physics_process(delta: float) -> void:
 func set_hit_points(new_points: int) -> void:
 	hit_points = new_points
 	print(hit_points, " ", "HP left")
+
+
+func set_slowdown_points(new_points: int) -> void:
+	slowdown_tick_count -= 1
+
+	if slowdown_tick_count > 0:
+		return
+
+	slowdown_tick_count = max_slowdown_tick_count
+
+	slowdown_points = new_points
+
+	if slowdown_points <= 0:
+		slowdown_points = 0
+		slowdown_enabled = false
+
+		var enemies: Array = get_tree().get_nodes_in_group("Enemies")
+
+		for enemy in enemies:
+			enemy.slowdown_enabled = false
+
+
+	print(slowdown_points, " ", "Slowdown Points left")
 
 
 func flip(move_dir: int) -> void:

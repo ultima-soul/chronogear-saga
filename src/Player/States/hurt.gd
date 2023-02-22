@@ -44,6 +44,9 @@ func process(delta: float) -> BaseState:
 	if timer > 0:
 		return null
 
+	if not character.is_on_floor():
+		return fall_state
+
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 		return walk_state
 
@@ -51,9 +54,6 @@ func process(delta: float) -> BaseState:
 
 
 func physics_process(delta: float) -> BaseState:
-	if not character.is_on_floor():
-		return fall_state
-
 	var move_dir: int = -1 if character.sprite.flip_h else 1
 
 	character.velocity.x += knockback_friction * move_dir

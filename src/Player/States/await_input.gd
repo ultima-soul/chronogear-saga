@@ -8,6 +8,10 @@ onready var shoot_state: BaseState = get_node(shoot_node)
 onready var toggle_slowdown_state: BaseState = get_node(toggle_slowdown_node)
 
 
+func enter() -> void:
+	pass
+
+
 func input(event: InputEvent) -> BaseState:
 	if can_shoot() and Input.is_action_just_pressed("shoot"):
 		return shoot_state

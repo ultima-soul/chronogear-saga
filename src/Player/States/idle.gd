@@ -17,6 +17,8 @@ func _on_EnemyDetector_body_entered(body: Node) -> void:
 
 
 func enter() -> void:
+	.enter()
+
 	character.velocity.x = 0
 	character.enemy_detector.connect("body_entered", self, "_on_EnemyDetector_body_entered")
 

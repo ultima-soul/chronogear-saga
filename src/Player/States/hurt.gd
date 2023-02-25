@@ -20,9 +20,11 @@ onready var fall_state: BaseState = get_node(fall_node)
 
 
 func enter() -> void:
+	.enter()
+
 	timer = max_time
 
-	var move_dir: int = -1 if character.sprite.flip_h else 1
+	var move_dir: int = 1 if character.sprite.flip_h else -1
 	character.velocity.x = knockback_speed * -move_dir
 
 	character.set_hit_points(character.hit_points - 1)
@@ -54,7 +56,7 @@ func process(delta: float) -> BaseState:
 
 
 func physics_process(delta: float) -> BaseState:
-	var move_dir: int = -1 if character.sprite.flip_h else 1
+	var move_dir: int = 1 if character.sprite.flip_h else -1
 
 	character.velocity.x += knockback_friction * move_dir
 

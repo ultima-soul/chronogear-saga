@@ -15,6 +15,7 @@ var slowdown_enabled: bool = false
 var slowdown_tick_count = max_slowdown_tick_count
 
 onready var sprite: Sprite = $Player
+onready var animations: AnimationPlayer = $AnimationPlayer
 onready var move_states: Node2D = $MoveStateManager
 onready var action_states: Node2D = $ActionStateManager
 onready var enemy_detector: Area2D = $EnemyDetector
@@ -73,9 +74,9 @@ func set_slowdown_points(new_points: int) -> void:
 
 func flip(move_dir: int) -> void:
 	if move_dir < 0:
-		sprite.flip_h = true
-	elif move_dir > 0:
 		sprite.flip_h = false
+	elif move_dir > 0:
+		sprite.flip_h = true
 
 	shot_start_position.transform.x.x = move_dir
 	shot_start_position.transform.origin.x = abs(shot_start_position.transform.origin.x) * move_dir

@@ -8,7 +8,7 @@ var character: KinematicBody2D
 
 
 func enter() -> void:
-	pass
+	character.animations.play(animation_name)
 
 
 func exit() -> void:

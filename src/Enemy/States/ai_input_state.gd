@@ -11,4 +11,5 @@ func _ready() -> void:
 
 
 func enter() -> void:
+	.enter()
 	character.timer.start(4)

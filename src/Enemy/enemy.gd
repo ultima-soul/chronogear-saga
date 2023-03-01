@@ -11,6 +11,8 @@ var move_dir: int = 0 setget set_move_dir
 var hit_points: int = max_hit_points setget set_hit_points
 var slowdown_enabled: bool = false
 
+onready var sprite: Sprite = get_node(filename.get_slice("/", 4).get_slice(".", 0))
+onready var animations: AnimationPlayer = $AnimationPlayer
 onready var states: Node2D = $StateManager
 onready var timer: Timer = $Timer
 onready var edge_detector: RayCast2D = $EdgeDetector
@@ -46,6 +48,11 @@ func _physics_process(delta: float) -> void:
 
 func set_move_dir(dir: int) -> void:
 	move_dir = dir
+
+	if move_dir < 0:
+		sprite.flip_h = false
+	elif move_dir > 0:
+		sprite.flip_h = true
 
 	if detecting_edge:
 		edge_detector.position.x = $CollisionShape2D.shape.extents.x * move_dir

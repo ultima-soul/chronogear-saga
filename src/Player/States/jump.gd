@@ -2,7 +2,7 @@ extends BaseState
 
 
 export var move_speed: float = 60
-export var jump_init_speed: float = 135
+export var jump_init_speed: float
 export var idle_node: NodePath
 export var walk_node: NodePath
 export var fall_node: NodePath
@@ -21,7 +21,11 @@ func _on_EnemyDetector_body_entered(body: Node) -> void:
 func enter() -> void:
 	.enter()
 
-	character.velocity.y = -jump_init_speed
+	if not jump_init_speed:
+		character.velocity.y = -(2 * character.max_jump_height * character.max_horizontal_velocity / character.max_jump_distance)
+	else:
+		character.velocity.y = -jump_init_speed
+
 	character.enemy_detector.connect("body_entered", self, "_on_EnemyDetector_body_entered")
 
 
@@ -40,7 +44,7 @@ func physics_process(delta: float) -> BaseState:
 		character.flip(move_dir)
 
 	character.velocity.x = move_dir * move_speed
-	character.velocity.y += character.gravity
+	character.velocity.y += character.gravity * delta
 	character.velocity = character.move_and_slide(character.velocity, Vector2.UP)
 
 	if character.velocity.y > 0:

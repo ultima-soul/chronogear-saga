@@ -2,6 +2,7 @@ extends BaseState
 
 
 export var move_speed: float = 60
+export var gravity_multiplier: float = 2.5
 export var idle_node: NodePath
 export var walk_node: NodePath
 export var hurt_node: NodePath
@@ -36,7 +37,7 @@ func physics_process(delta: float) -> BaseState:
 		character.flip(move_dir)
 
 	character.velocity.x = move_dir * move_speed
-	character.velocity.y += character.gravity
+	character.velocity.y += character.gravity * delta * gravity_multiplier
 	character.velocity = character.move_and_slide(character.velocity, Vector2.UP)
 
 	if character.is_on_floor():

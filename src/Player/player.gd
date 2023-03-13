@@ -2,12 +2,17 @@ class_name Player
 extends KinematicBody2D
 
 
+const TILE_PIXEL_SIZE: int = 18
+
 export var max_hit_points: int = 10
 export var max_slowdown_points: int = 10
 export var max_slowdown_tick_count: int = 60
 export var Shot: PackedScene
 
-var gravity: float = 4.5
+var max_jump_height: float = 3.8 * TILE_PIXEL_SIZE
+var max_jump_distance: float = 1.5 * TILE_PIXEL_SIZE
+var max_horizontal_velocity: float = 60
+var gravity: float = 2 * max_jump_height * pow(max_horizontal_velocity, 2) / pow(max_jump_distance, 2)
 var velocity: Vector2 = Vector2.ZERO
 var hit_points: int = max_hit_points setget set_hit_points
 var slowdown_points: int = max_slowdown_points setget set_slowdown_points

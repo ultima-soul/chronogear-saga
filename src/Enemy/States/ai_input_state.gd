@@ -10,6 +10,6 @@ func _ready() -> void:
 	randomize()
 
 
-func enter() -> void:
+func enter(msg: Dictionary = {}) -> void:
 	.enter()
 	character.timer.start(4)

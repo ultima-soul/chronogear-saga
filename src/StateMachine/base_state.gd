@@ -7,7 +7,7 @@ export var animation_name: String
 var character: KinematicBody2D
 
 
-func enter() -> void:
+func enter(msg: Dictionary = {}) -> void:
 	character.animations.play(animation_name)
 
 

@@ -133,7 +133,7 @@ tracks/1/keys = {
 extents = Vector2( 7, 9 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 7.75, 8.875 )
+extents = Vector2( 9, 9.5 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 4
@@ -219,12 +219,13 @@ script = ExtResource( 11 )
 await_input_node = NodePath("../AwaitInput")
 
 [node name="EnemyDetector" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
 collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
-visible = false
-position = Vector2( 0, -9.125 )
+position = Vector2( 0, -8.5 )
 shape = SubResource( 2 )
 
 [node name="ShotStartPosition" type="Position2D" parent="."]

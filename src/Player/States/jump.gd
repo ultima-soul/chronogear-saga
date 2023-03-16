@@ -15,14 +15,14 @@ onready var hurt_state: BaseState = get_node(hurt_node)
 
 
 func _on_EnemyDetector_body_entered(body: Node) -> void:
-	character.move_states.change_state(hurt_state)
+	character.move_states.change_state(hurt_state, {"body": body})
 
 
-func enter() -> void:
+func enter(msg: Dictionary = {}) -> void:
 	.enter()
 
 	if not jump_init_speed:
-		character.velocity.y = -(2 * character.max_jump_height * character.max_horizontal_velocity / character.max_jump_distance)
+		character.velocity.y = -character.jump_init_speed
 	else:
 		character.velocity.y = -jump_init_speed
 

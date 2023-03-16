@@ -14,10 +14,10 @@ onready var hurt_state: BaseState = get_node(hurt_node)
 
 
 func _on_EnemyDetector_body_entered(body: Node) -> void:
-	character.move_states.change_state(hurt_state)
+	character.move_states.change_state(hurt_state, {"body": body})
 
 
-func enter() -> void:
+func enter(msg: Dictionary = {}) -> void:
 	.enter()
 
 	character.enemy_detector.connect("body_entered", self, "_on_EnemyDetector_body_entered")

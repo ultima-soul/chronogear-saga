@@ -9,7 +9,7 @@ var timer: float = 0
 onready var await_input_state: BaseState = get_node(await_input_node)
 
 
-func enter() -> void:
+func enter(msg: Dictionary = {}) -> void:
 	timer = max_time
 
 	character.slowdown_enabled = not character.slowdown_enabled

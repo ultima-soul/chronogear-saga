@@ -10,7 +10,7 @@ onready var walk_state: BaseState = get_node(walk_node)
 #onready var fall_state: BaseState = get_node(fall_node)
 
 
-func enter() -> void:
+func enter(msg: Dictionary = {}) -> void:
 	character.timer.start(2)
 
 

@@ -117,6 +117,7 @@ anims/Idle = SubResource( 4 )
 anims/Walk = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0.5, -6 )
 shape = SubResource( 1 )
 
@@ -140,7 +141,8 @@ cast_to = Vector2( 0, 9 )
 collision_mask = 4
 
 [node name="HitDetector" type="Area2D" parent="."]
-collision_layer = 2
+visible = false
+collision_layer = 0
 collision_mask = 8
 monitorable = false
 

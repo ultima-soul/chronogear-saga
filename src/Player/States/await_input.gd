@@ -8,7 +8,7 @@ onready var shoot_state: BaseState = get_node(shoot_node)
 onready var toggle_slowdown_state: BaseState = get_node(toggle_slowdown_node)
 
 
-func enter() -> void:
+func enter(msg: Dictionary = {}) -> void:
 	pass
 
 

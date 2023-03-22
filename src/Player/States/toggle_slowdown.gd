@@ -13,11 +13,7 @@ func enter(msg: Dictionary = {}) -> void:
 	timer = max_time
 
 	character.slowdown_enabled = not character.slowdown_enabled
-
-	var enemies: Array = get_tree().get_nodes_in_group("Enemies")
-
-	for enemy in enemies:
-		enemy.slowdown_enabled = not enemy.slowdown_enabled
+	character.set_world_slowdown_status(character.slowdown_enabled)
 
 
 func process(delta: float) -> BaseState:

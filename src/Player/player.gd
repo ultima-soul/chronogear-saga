@@ -68,12 +68,7 @@ func set_slowdown_points(new_points: int) -> void:
 	if slowdown_points <= 0:
 		slowdown_points = 0
 		slowdown_enabled = false
-
-		var enemies: Array = get_tree().get_nodes_in_group("Enemies")
-
-		for enemy in enemies:
-			enemy.slowdown_enabled = false
-
+		set_world_slowdown_status(false)
 
 	print(slowdown_points, " ", "Slowdown Points left")
 
@@ -86,3 +81,15 @@ func flip(move_dir: int) -> void:
 
 	shot_start_position.transform.x.x = move_dir
 	shot_start_position.transform.origin.x = abs(shot_start_position.transform.origin.x) * move_dir
+
+
+func set_world_slowdown_status(enabled: bool):
+		var enemies: Array = get_tree().get_nodes_in_group("Enemies")
+
+		for enemy in enemies:
+			enemy.slowdown_enabled = enabled
+
+		var world_objects: Array = get_tree().get_nodes_in_group("WorldObjects")
+
+		for object in world_objects:
+			object.slowdown_enabled = enabled

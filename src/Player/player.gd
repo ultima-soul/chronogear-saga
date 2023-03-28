@@ -56,6 +56,11 @@ func set_hit_points(new_points: int) -> void:
 
 
 func set_slowdown_points(new_points: int) -> void:
+	if new_points > slowdown_points:
+		slowdown_points = new_points
+		print(slowdown_points, " ", "Slowdown Points left")
+		return
+
 	slowdown_tick_count -= 1
 
 	if slowdown_tick_count > 0:

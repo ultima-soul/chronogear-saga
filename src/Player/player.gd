@@ -1,10 +1,11 @@
 class_name Player
 extends KinematicBody2D
 
+signal health_changed
 
 const TILE_PIXEL_SIZE: int = 18
 
-export var max_hit_points: int = 10
+export var max_hit_points: int = 28
 export var max_slowdown_points: int = 10
 export var max_slowdown_tick_count: int = 60
 export var Shot: PackedScene
@@ -31,6 +32,7 @@ onready var shot_start_position: Position2D = $ShotStartPosition
 func _ready() -> void:
 	move_states.init(self)
 	action_states.init(self)
+	emit_signal("health_changed", hit_points, false)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -51,7 +53,10 @@ func _physics_process(delta: float) -> void:
 
 
 func set_hit_points(new_points: int) -> void:
-	hit_points = new_points
+	# Increase occurs due to item only, otherwise hit points change because of damage
+	var item_used: bool = new_points > hit_points
+	hit_points = clamp(new_points, 0, max_hit_points)
+	emit_signal("health_changed", hit_points, item_used)
 	print(hit_points, " ", "HP left")
 
 

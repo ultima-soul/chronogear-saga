@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/UserInterface/HealthBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UserInterface/SlowdownPointsBar.tscn" type="PackedScene" id=2]
 
 [node name="UserInterface" type="Control"]
 anchor_right = 1.0
@@ -11,3 +12,9 @@ margin_left = 18.0
 margin_top = 18.0
 margin_right = 26.0
 margin_bottom = 74.0
+
+[node name="SlowdownPointsBar" parent="." instance=ExtResource( 2 )]
+margin_left = 9.0
+margin_top = 18.0
+margin_right = 19.0
+margin_bottom = 78.0

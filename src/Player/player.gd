@@ -1,12 +1,13 @@
 class_name Player
 extends KinematicBody2D
 
-signal health_changed
+signal hit_points_changed
+signal slowdown_points_changed
 
 const TILE_PIXEL_SIZE: int = 18
 
 export var max_hit_points: int = 28
-export var max_slowdown_points: int = 10
+export var max_slowdown_points: int = 28
 export var max_slowdown_tick_count: int = 60
 export var Shot: PackedScene
 
@@ -32,7 +33,8 @@ onready var shot_start_position: Position2D = $ShotStartPosition
 func _ready() -> void:
 	move_states.init(self)
 	action_states.init(self)
-	emit_signal("health_changed", hit_points, false)
+	emit_signal("hit_points_changed", hit_points, false)
+	emit_signal("slowdown_points_changed", hit_points, false)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -56,13 +58,14 @@ func set_hit_points(new_points: int) -> void:
 	# Increase occurs due to item only, otherwise hit points change because of damage
 	var item_used: bool = new_points > hit_points
 	hit_points = clamp(new_points, 0, max_hit_points)
-	emit_signal("health_changed", hit_points, item_used)
+	emit_signal("hit_points_changed", hit_points, item_used)
 	print(hit_points, " ", "HP left")
 
 
 func set_slowdown_points(new_points: int) -> void:
 	if new_points > slowdown_points:
-		slowdown_points = new_points
+		slowdown_points = clamp(new_points, 0, max_slowdown_points)
+		emit_signal("slowdown_points_changed", slowdown_points, true)
 		print(slowdown_points, " ", "Slowdown Points left")
 		return
 
@@ -80,6 +83,7 @@ func set_slowdown_points(new_points: int) -> void:
 		slowdown_enabled = false
 		set_world_slowdown_status(false)
 
+	emit_signal("slowdown_points_changed", slowdown_points, false)
 	print(slowdown_points, " ", "Slowdown Points left")
 
 

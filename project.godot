@@ -45,6 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="2D Platformer"
+run/main_scene="res://src/Screens/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [display]

@@ -2,10 +2,15 @@ class_name CustomButton
 extends Button
 
 
+export var initial_focus: bool = false
+
 onready var original_region_rect_size_y = theme.get_stylebox("focus","Button").region_rect.size[1]
 onready var original_region_rect_position_y = theme.get_stylebox("focus","Button").region_rect.position[1]
 onready var original_font_bottom_spacing = theme.default_font.extra_spacing_bottom
 
+func _ready() -> void:
+	if initial_focus:
+		call_deferred("grab_focus")
 
 func _on_CustomButton_button_down() -> void:
 	theme.get_stylebox("focus","Button").region_rect.size[1] = 18

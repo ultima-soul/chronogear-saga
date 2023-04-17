@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/UserInterface/CustomButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UserInterface/continue_button.gd" type="Script" id=2]
+
+[node name="ContinueButton" instance=ExtResource( 1 )]
+text = "Continue"
+script = ExtResource( 2 )
+
+[connection signal="button_up" from="." to="." method="_on_ContinueButton_button_up"]

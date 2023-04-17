@@ -1,60 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/UserInterface/CustomButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UserInterface/quit_button.gd" type="Script" id=2]
-[ext_resource path="res://assets/button_normal.png" type="Texture" id=3]
-[ext_resource path="res://assets/Kenney Mini Square Mono.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://assets/button_hover.png" type="Texture" id=5]
-[ext_resource path="res://assets/button_pressed.png" type="Texture" id=6]
-[ext_resource path="res://assets/button_focused.png" type="Texture" id=7]
-
-[sub_resource type="StyleBoxEmpty" id=16]
-
-[sub_resource type="StyleBoxTexture" id=17]
-texture = ExtResource( 7 )
-region_rect = Rect2( 0, 0, 48, 16 )
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id=18]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 48, 16 )
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id=19]
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 48, 16 )
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id=20]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 48, 16 )
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="DynamicFont" id=10]
-resource_local_to_scene = true
-size = 8
-extra_spacing_bottom = 4
-font_data = ExtResource( 4 )
-
-[sub_resource type="Theme" id=11]
-resource_local_to_scene = true
-default_font = SubResource( 10 )
-Button/colors/font_color = Color( 1, 1, 1, 1 )
-Button/colors/font_color_focus = Color( 1, 1, 1, 1 )
-Button/colors/font_color_hover = Color( 0.666667, 0.666667, 0.666667, 1 )
-Button/colors/font_color_pressed = Color( 0.666667, 0.666667, 0.666667, 1 )
-Button/styles/disabled = SubResource( 16 )
-Button/styles/focus = SubResource( 17 )
-Button/styles/hover = SubResource( 18 )
-Button/styles/normal = SubResource( 19 )
-Button/styles/pressed = SubResource( 20 )
 
 [node name="QuitButton" instance=ExtResource( 1 )]
-theme = SubResource( 11 )
 text = "Quit"
 script = ExtResource( 2 )
 

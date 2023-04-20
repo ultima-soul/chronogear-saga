@@ -28,6 +28,7 @@ onready var move_states: Node2D = $MoveStateManager
 onready var action_states: Node2D = $ActionStateManager
 onready var enemy_detector: Area2D = $EnemyDetector
 onready var shot_start_position: Position2D = $ShotStartPosition
+onready var camera: Camera2D = $Camera2D
 
 
 func _ready() -> void:

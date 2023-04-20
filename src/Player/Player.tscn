@@ -82,7 +82,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( -3, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -12 ), Vector2( 0, -40 ) ]
+"values": [ Vector2( 0, -12 ), Vector2( 0, -80 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Player:scale")
@@ -249,6 +249,7 @@ animation_name = "Air"
 idle_node = NodePath("../Idle")
 walk_node = NodePath("../Walk")
 hurt_node = NodePath("../Hurt")
+death_node = NodePath("../Death")
 
 [node name="Hurt" type="Node2D" parent="MoveStateManager"]
 script = ExtResource( 8 )

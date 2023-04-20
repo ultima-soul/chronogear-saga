@@ -6,10 +6,12 @@ export var gravity_multiplier: float = 2.5
 export var idle_node: NodePath
 export var walk_node: NodePath
 export var hurt_node: NodePath
+export var death_node: NodePath
 
 onready var idle_state: BaseState = get_node(idle_node)
 onready var walk_state: BaseState = get_node(walk_node)
 onready var hurt_state: BaseState = get_node(hurt_node)
+onready var death_state: BaseState = get_node(death_node)
 
 
 func _on_EnemyDetector_body_entered(body: Node) -> void:
@@ -45,5 +47,7 @@ func physics_process(delta: float) -> BaseState:
 			return walk_state
 		else:
 			return idle_state
+	elif character.position.y > character.camera.limit_bottom + 2 * character.TILE_PIXEL_SIZE:
+		return death_state
 
 	return null

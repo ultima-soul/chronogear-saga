@@ -7,12 +7,15 @@ export var max_time: float = 0.6
 export var idle_node: NodePath
 export var walk_node: NodePath
 export var fall_node: NodePath
+export var death_node: NodePath
 
 var timer: float = 0
+var character_died: bool = false
 
 onready var idle_state: BaseState = get_node(idle_node)
 onready var walk_state: BaseState = get_node(walk_node)
 onready var fall_state: BaseState = get_node(fall_node)
+onready var death_state: BaseState = get_node(death_node)
 
 
 func enter(msg: Dictionary = {}) -> void:
@@ -31,7 +34,12 @@ func enter(msg: Dictionary = {}) -> void:
 	character.flip(-horizontal_move_dir)
 	character.velocity.x = knockback_speed * horizontal_move_dir
 	character.velocity.y = -character.jump_init_speed * 0.5
-	character.set_hit_points(character.hit_points - 1)
+
+	var new_hit_points = character.hit_points - 1
+	character.set_hit_points(new_hit_points)
+
+	if new_hit_points <= 0:
+		character_died = true
 
 
 func process(delta: float) -> BaseState:
@@ -39,6 +47,9 @@ func process(delta: float) -> BaseState:
 
 	if timer > 0:
 		return null
+
+	if character_died:
+		return death_state
 
 	character.enemy_detector.set_deferred("monitoring", true)
 

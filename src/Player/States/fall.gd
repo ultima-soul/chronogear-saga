@@ -2,7 +2,7 @@ extends BaseState
 
 
 export var move_speed: float = 60
-export var gravity_multiplier: float = 2.5
+export var gravity_multiplier: float = 2
 export var idle_node: NodePath
 export var walk_node: NodePath
 export var hurt_node: NodePath

@@ -43,6 +43,9 @@ func physics_process(delta: float) -> BaseState:
 		move_dir = 1
 		character.flip(move_dir)
 
+	if Input.is_action_just_released("jump") and character.velocity.y < 0:
+		character.velocity.y *= 0.5
+
 	character.velocity.x = move_dir * move_speed
 	character.velocity.y += character.gravity * delta
 	character.velocity = character.move_and_slide(character.velocity, Vector2.UP)

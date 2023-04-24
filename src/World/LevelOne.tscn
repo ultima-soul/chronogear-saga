@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/World/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/World/MovingPlatform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/World/Objects/MovingPlatform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Enemy/PushBeetle.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Curve2D" id=1]

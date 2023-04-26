@@ -48,6 +48,9 @@ func physics_process(delta: float) -> BaseState:
 
 	character.velocity.x = move_dir * move_speed
 	character.velocity.y += character.gravity * delta
+
+	attempt_corner_correction(3, delta)
+
 	character.velocity = character.move_and_slide(character.velocity, Vector2.UP)
 
 	if character.velocity.y > 0:
@@ -60,3 +63,16 @@ func physics_process(delta: float) -> BaseState:
 			return idle_state
 
 	return null
+
+
+func attempt_corner_correction(pixels_x: int, delta: float) -> void:
+	if character.velocity.y < 0 and \
+	   character.test_move(character.global_transform, Vector2(0, character.velocity.y * delta)):
+		for i in range(1, pixels_x * 2 + 1):
+			for j in [-1.0, 1.0]:
+				if not character.test_move(character.global_transform.translated(Vector2(i * j / 2, 0)),
+										   Vector2(0, character.velocity.y * delta)):
+					character.translate(Vector2(i * j / 2, 0))
+					if character.velocity.x * j < 0:
+						character.velocity.x = 0
+					return

@@ -38,7 +38,8 @@ func input(event: InputEvent) -> BaseState:
 
 func physics_process(delta: float) -> BaseState:
 	if not character.is_on_floor():
-		return fall_state
+		character.move_states.change_state(fall_state, {"was_jumping": false})
+		return null
 
 	character.velocity.y += character.gravity * delta
 	character.velocity = character.move_and_slide(character.velocity, Vector2.UP)

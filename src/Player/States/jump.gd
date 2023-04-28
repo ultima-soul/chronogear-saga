@@ -54,7 +54,8 @@ func physics_process(delta: float) -> BaseState:
 	character.velocity = character.move_and_slide(character.velocity, Vector2.UP)
 
 	if character.velocity.y > 0:
-		return fall_state
+		character.move_states.change_state(fall_state, {"was_jumping": true})
+		return null
 
 	if character.is_on_floor():
 		if move_dir != 0:

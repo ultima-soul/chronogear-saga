@@ -248,6 +248,7 @@ script = ExtResource( 6 )
 animation_name = "Air"
 idle_node = NodePath("../Idle")
 walk_node = NodePath("../Walk")
+jump_node = NodePath("../Jump")
 hurt_node = NodePath("../Hurt")
 death_node = NodePath("../Death")
 

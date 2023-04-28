@@ -11,8 +11,8 @@ export var max_slowdown_points: int = 28
 export var max_slowdown_tick_count: int = 60
 export var Shot: PackedScene
 
-var max_jump_height: float = 3.8 * TILE_PIXEL_SIZE
-var max_jump_distance: float = 1.5 * TILE_PIXEL_SIZE
+var max_jump_height: float = 3.5 * TILE_PIXEL_SIZE
+var max_jump_distance: float = 2.1 * TILE_PIXEL_SIZE
 var max_horizontal_velocity: float = 60
 var jump_init_speed = 2 * max_jump_height * max_horizontal_velocity / max_jump_distance
 var gravity: float = 2 * max_jump_height * pow(max_horizontal_velocity, 2) / pow(max_jump_distance, 2)

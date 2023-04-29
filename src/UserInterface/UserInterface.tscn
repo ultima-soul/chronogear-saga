@@ -11,26 +11,24 @@
 [ext_resource path="res://src/UserInterface/RetryButton.tscn" type="PackedScene" id=13]
 
 [node name="UserInterface" type="Control"]
-pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 7 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 1 )]
-pause_mode = 1
 margin_left = 18.0
 margin_top = 18.0
 margin_right = 26.0
 margin_bottom = 74.0
 
 [node name="SlowdownPointsBar" parent="." instance=ExtResource( 2 )]
-pause_mode = 1
 margin_left = 9.0
 margin_top = 18.0
 margin_right = 19.0
 margin_bottom = 78.0
 
 [node name="PauseOverlay" type="ColorRect" parent="."]
+pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0

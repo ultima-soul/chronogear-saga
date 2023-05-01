@@ -191,7 +191,7 @@ extents = Vector2( 9, 9.5 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 4
-moving_platform_apply_velocity_on_leave = 1
+moving_platform_apply_velocity_on_leave = 2
 script = ExtResource( 2 )
 Shot = ExtResource( 12 )
 
@@ -301,7 +301,6 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
 smoothing_speed = 7.0
-drag_margin_top = 0.5
-drag_margin_bottom = 0.4
+drag_margin_top = 0.4
 editor_draw_drag_margin = true
 script = ExtResource( 14 )

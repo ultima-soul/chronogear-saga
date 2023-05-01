@@ -60,7 +60,7 @@ alignment = 1
 [node name="PlayButton" parent="VBoxContainer/Menu/VBoxContainer" instance=ExtResource( 6 )]
 text = "Play"
 initial_focus = true
-scene_path = "res://src/World/ActionBlocks/LearningPlatforming.tscn"
+scene_path = "res://src/World/Levels/LevelOne.tscn"
 
 [node name="QuitButton" parent="VBoxContainer/Menu/VBoxContainer" instance=ExtResource( 9 )]
 margin_top = 20.0

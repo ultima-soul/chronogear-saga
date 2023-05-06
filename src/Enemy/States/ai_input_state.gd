@@ -12,4 +12,6 @@ func _ready() -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	.enter()
-	character.timer.start(4)
+
+	if character.timer:
+		character.timer.start(4)

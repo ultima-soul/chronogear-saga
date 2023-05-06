@@ -39,4 +39,4 @@ func physics_process(delta: float) -> BaseState:
 
 
 func is_edge_detected() -> bool:
-	return character.detecting_edge and not character.edge_detector.is_colliding()
+	return not character.edge_detector.is_colliding() if character.detecting_edge else false

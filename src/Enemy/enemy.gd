@@ -1,9 +1,11 @@
 class_name Enemy
 extends KinematicBody2D
 
+enum MoveDirections {LEFT = -1, RIGHT = 1}
 
 export var detecting_edge: bool
 export var max_hit_points: int = 2
+export (MoveDirections) var start_dir: int = MoveDirections.LEFT
 
 var gravity: float = 4.5
 var velocity: Vector2 = Vector2.ZERO
@@ -14,8 +16,8 @@ var slowdown_enabled: bool = false
 onready var sprite: Sprite = get_node(filename.get_slice("/", 4).get_slice(".", 0))
 onready var animations: AnimationPlayer = $AnimationPlayer
 onready var states: Node2D = $StateManager
-onready var timer: Timer = $Timer
-onready var edge_detector: RayCast2D = $EdgeDetector
+onready var timer: Timer = get_node_or_null("Timer")
+onready var edge_detector: RayCast2D = get_node_or_null("EdgeDetector")
 onready var hit_detector: Area2D = $HitDetector
 
 
@@ -26,14 +28,18 @@ func _on_HitDetector_area_entered(area: Area2D) -> void:
 func _ready() -> void:
 	add_to_group("Enemies")
 
+	detecting_edge = detecting_edge and edge_detector
+	self.move_dir = start_dir
+
 	if detecting_edge:
 		edge_detector.enabled = true
 		edge_detector.position.x = $CollisionShape2D.shape.extents.x * move_dir
 
 	states.init(self)
 
-	for child in states.get_children():
-		timer.connect("timeout", child, "_on_Timer_timeout")
+	if timer:
+		for child in states.get_children():
+			timer.connect("timeout", child, "_on_Timer_timeout")
 
 	randomize()
 

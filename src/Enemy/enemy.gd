@@ -18,7 +18,6 @@ onready var animations: AnimationPlayer = $AnimationPlayer
 onready var states: Node2D = $StateManager
 onready var timer: Timer = get_node_or_null("Timer")
 onready var edge_detector: RayCast2D = get_node_or_null("EdgeDetector")
-onready var hit_detector: Area2D = $HitDetector
 
 
 func _on_HitDetector_area_entered(area: Area2D) -> void:

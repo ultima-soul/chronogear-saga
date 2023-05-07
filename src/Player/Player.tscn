@@ -187,7 +187,7 @@ tracks/1/keys = {
 extents = Vector2( 6, 9 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 9, 9.5 )
+extents = Vector2( 9, 10 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 4
@@ -288,7 +288,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
-position = Vector2( 0, -8.5 )
+position = Vector2( 0, -9 )
 shape = SubResource( 2 )
 
 [node name="ShotStartPosition" type="Position2D" parent="."]

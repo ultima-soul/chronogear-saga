@@ -36,7 +36,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0 ]
+"values": [ 0.0, 1.0 ]
 }
 
 [node name="SpikeFace" type="Node2D" groups=["Enemies"]]
@@ -46,6 +46,8 @@ script = ExtResource( 1 )
 curve = null
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotate = false
+loop = false
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Path2D/PathFollow2D"]
 collision_layer = 2
@@ -64,6 +66,6 @@ anims/Bounce = SubResource( 2 )
 anims/Loop = SubResource( 3 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-scale = Vector2( 2.4, 1.6 )
+scale = Vector2( 4.5, 4.5 )
 process_parent = true
 physics_process_parent = true

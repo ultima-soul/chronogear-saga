@@ -40,6 +40,7 @@ tracks/0/keys = {
 
 [node name="Door" type="Area2D"]
 pause_mode = 2
+z_index = -1
 collision_layer = 4
 monitorable = false
 script = ExtResource( 2 )

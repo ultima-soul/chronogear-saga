@@ -15,24 +15,27 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -29.0
-margin_top = -31.0
-margin_right = 29.0
-margin_bottom = 31.0
+margin_top = -48.5
+margin_right = 31.0
+margin_bottom = 52.5
 grow_horizontal = 2
 grow_vertical = 2
-custom_constants/separation = 60
+custom_constants/separation = 30
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 margin_right = 60.0
-margin_bottom = 14.0
+margin_bottom = 23.0
 theme = ExtResource( 7 )
-text = "Game Title"
+custom_constants/line_spacing = -5
+text = "Chronogear Saga"
+align = 1
+autowrap = true
 
 [node name="Menu" type="Control" parent="VBoxContainer"]
 margin_left = 1.0
-margin_top = 74.0
+margin_top = 53.0
 margin_right = 59.0
-margin_bottom = 122.0
+margin_bottom = 101.0
 rect_min_size = Vector2( 58, 48 )
 size_flags_horizontal = 4
 size_flags_vertical = 4

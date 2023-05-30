@@ -14,6 +14,7 @@ There are two levels that include enemies, platforming challenges, and recovery 
 - Up Arrow: Jump
 - Space Bar: Shoot energy bullet
 - B: Toggle slowdown of enemies and world objects like moving platforms
+- Esc: Toggle pause menu
 
 ## Built With
 

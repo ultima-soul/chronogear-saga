@@ -6,6 +6,8 @@ You discover a strange gadget on an island that suddenly appeared. The gadget ex
 
 There are two levels that include enemies, platforming challenges, and recovery items to collect.
 
+**Try it out [here](https://ultima-soul.github.io/chronogear-saga/)**!
+
 ## Controls
 
 - Left/Right Arrow: Horizontal movement
